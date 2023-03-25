@@ -16,10 +16,17 @@ import io.reactivex.rxjava3.core.Single;
 
 @Dao
 public interface GiocoUserDao {
+
+    /**
+     * Restituisce la lista dei giochi attualmente in prestito
+     * @param userName
+     * @param giocoName
+     * @return
+     */
     @Query("SELECT * FROM giochi_prestati " +
-            "WHERE giochi_prestati.gioco_name LIKE :giocoName AND" +
-            " giochi_prestati.user_name LIKE :userName")
-    public List<GiocoUser> loadGiocoConUser(String userName, String giocoName);
+            "WHERE giochi_prestati.returned = 0 AND giochi_prestati.gioco_name LIKE :giocoName AND" +
+            " giochi_prestati.user_ID LIKE :userName")
+    public List<GiocoUser> loadGiocoConUser(int userName, String giocoName);
 
     @Query("SELECT * FROM gioco " +
             "WHERE gioco.nome NOT IN " +

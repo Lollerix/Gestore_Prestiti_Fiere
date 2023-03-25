@@ -6,20 +6,25 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 
-@Entity(tableName = "giochi_prestati", primaryKeys = {"user_name", "gioco_name"})
+@Entity(tableName = "giochi_prestati", primaryKeys = {"user_ID", "gioco_name"})
 public class GiocoUser {
 
-    @ColumnInfo(name = "user_name")
+    @ColumnInfo
     @NonNull
-    public String userName;
-    @ColumnInfo(name = "gioco_name")
+    public int user_ID;
+    @ColumnInfo
     @NonNull
-    public String giocoName;
+    public String gioco_name;
+    @ColumnInfo
+    @NonNull
+    public int fiera_id;
+
 
     @ColumnInfo
+    public boolean returned;
+
+
+    @ColumnInfo (defaultValue =  "CURRENT_TIMESTAMP")
     @NonNull
-    public String data;
-    @ColumnInfo
-    @NonNull
-    public String ora;
+    public String created_at;
 }
