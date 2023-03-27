@@ -16,9 +16,6 @@ public class PrestitiFragment extends Fragment {
 
             list = (ListView) getView().findViewById(R.id.List);
 
-            list.setAdapter();
-
-            ;
 
         }
 
