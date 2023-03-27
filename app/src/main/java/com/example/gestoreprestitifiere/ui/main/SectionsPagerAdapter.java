@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.gestoreprestitifiere.R;
+import com.example.gestoreprestitifiere.ui.main.Prestiti.PrestitiFragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -29,7 +30,16 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1);
+        PrestitiFragment fragment = new PrestitiFragment(mContext);
+
+
+        Fragment h = new Fragment();
+
+        if(position == 0) {
+            h = fragment;
+        }
+
+        return h;
     }
 
     @Nullable

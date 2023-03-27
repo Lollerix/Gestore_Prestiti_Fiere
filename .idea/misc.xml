@@ -5,6 +5,9 @@
       <map>
         <entry key="..\:/Users/Vito/AndroidStudioProjects/GestorePrestitiFiere/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Vito/AndroidStudioProjects/GestorePrestitiFiere/app/src/main/res/layout/fragment_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Vito/AndroidStudioProjects/GestorePrestitiFiere/app/src/main/res/layout/lista_prestiti.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Vito/AndroidStudioProjects/GestorePrestitiFiere/app/src/main/res/layout/prestito_button.xml" value="0.33" />
+        <entry key="..\:/Users/Vito/AndroidStudioProjects/GestorePrestitiFiere/app/src/main/res/layout/research_list.xml" value="0.32083333333333336" />
       </map>
     </option>
   </component>

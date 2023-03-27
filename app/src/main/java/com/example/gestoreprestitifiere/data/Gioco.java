@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey;
 public class Gioco {
     @PrimaryKey
     @NonNull
-    private String nome;
+    private final String nome;
     @ColumnInfo(name = "min_giocatori")
     private int minGiocatori;
     @ColumnInfo(name = "max_giocatori")
@@ -28,13 +28,11 @@ public class Gioco {
 
     }
 
-
+    @NonNull
     public String getNome() {return nome;}
     public int getMinGiocatori() {return minGiocatori;}
     public int getMaxGiocatori() {return maxGiocatori;}
 
-    public void setMinGiocatori(int min){minGiocatori = min;}
-    public void setMaxGiocatori(int max){maxGiocatori = max;}
 
 
     public String toString() {
