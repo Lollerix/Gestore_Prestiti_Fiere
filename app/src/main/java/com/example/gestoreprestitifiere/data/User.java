@@ -15,12 +15,12 @@ public class User {
 
     @ColumnInfo
     @NonNull
-    private final String nome;
+    private String nome;
     @ColumnInfo
     @NonNull
-    private final String telefono;
+    private String telefono;
     @ColumnInfo
-    private final int age;
+    private int age;
     @ColumnInfo(defaultValue = "CURRENT_TIMESTAMP")
     private final String created_time;
 
@@ -39,6 +39,15 @@ public class User {
         this.telefono = telefono;
         this.age = age;
         this.created_time = created_time;
+    }
+
+    @Ignore
+    public User(String nome, String telefono, int age) {
+        this.nome = nome;
+        this.telefono = telefono;
+        this.age = age;
+        this.id = 0;
+        this.created_time = null;
     }
 
     @NonNull
@@ -65,4 +74,17 @@ public class User {
     public String toString() {
         return nome;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public  void setTelefono(String tel) {
+        this.telefono = tel;
+    }
+
+    public void setAge(int n) {
+        this.age = n;
+    }
+
+
 }

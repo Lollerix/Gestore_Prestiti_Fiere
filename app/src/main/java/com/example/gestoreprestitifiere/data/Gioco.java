@@ -28,6 +28,7 @@ public class Gioco {
 
     }
 
+
     @NonNull
     public String getNome() {return nome;}
     public int getMinGiocatori() {return minGiocatori;}

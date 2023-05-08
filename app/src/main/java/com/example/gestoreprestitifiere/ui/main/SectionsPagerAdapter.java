@@ -9,7 +9,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.gestoreprestitifiere.R;
-import com.example.gestoreprestitifiere.ui.main.Prestiti.PrestitiFragment;
+import com.example.gestoreprestitifiere.ui.main.prestiti.PrestitiFragment;
+import com.example.gestoreprestitifiere.ui.main.prestiti.PrestitiTornatiFragment;
+import com.example.gestoreprestitifiere.ui.main.users.UserFragment;
+
+import java.util.ArrayList;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -18,28 +22,23 @@ import com.example.gestoreprestitifiere.ui.main.Prestiti.PrestitiFragment;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2, R.string.tab_text_3};
     private final Context mContext;
+    private ArrayList<Fragment> fragmentList = new ArrayList<Fragment>();
+
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
+        fragmentList.add(new PrestitiFragment(mContext));
+        fragmentList.add(new PrestitiTornatiFragment(mContext));
+        fragmentList.add(new UserFragment(mContext));
     }
 
     @Override
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        PrestitiFragment fragment = new PrestitiFragment(mContext);
-
-
-        Fragment h = new Fragment();
-
-        if(position == 0) {
-            h = fragment;
-        }
-
-        return h;
+        return fragmentList.get(position);
     }
 
     @Nullable
@@ -50,7 +49,11 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show 2 total pages.
-        return 2;
+        return 3;
+    }
+
+    public void refreshUsers() {
+        UserFragment uf = (UserFragment) fragmentList.get(2);
+        uf.initDataset();
     }
 }

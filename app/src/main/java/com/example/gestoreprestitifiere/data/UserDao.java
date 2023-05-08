@@ -14,13 +14,19 @@ import io.reactivex.rxjava3.core.Single;
 
 @Dao
 public interface UserDao {
-    @Query("SELECT * FROM user")
+    @Query("SELECT * FROM user ORDER BY user.nome")
     public List<User> getAll();
+
+    @Query("INSERT INTO user(nome, telefono, age) VALUES(:username, :tel, :age)")
+    public void insertUser(String username, String tel, int age);
+
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     public void insertAll(User... users);
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     public void insert(User user);
+
+
 
     @Delete
     public void Delete(User user);

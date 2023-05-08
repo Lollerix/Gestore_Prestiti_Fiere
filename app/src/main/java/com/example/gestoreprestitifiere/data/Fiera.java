@@ -3,24 +3,31 @@ package com.example.gestoreprestitifiere.data;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity
-public class Fiera {
-    @PrimaryKey(autoGenerate = true)
-    @NonNull
-    private final Integer id;
+import java.util.Calendar;
+import java.util.Date;
 
-    @ColumnInfo
+@Entity(tableName = "fiera")
+public class Fiera {
+
+    @PrimaryKey
     @NonNull
     private final String nome;
     @ColumnInfo(defaultValue = "CURRENT_TIMESTAMP")
-    private final String created_time;
+    private final Date created_time;
 
-    public Fiera(@NonNull Integer id, @NonNull String nome, String created_time) {
-        this.id = id;
+    public Fiera(@NonNull String nome, Date created_time) {
         this.nome = nome;
         this.created_time = created_time;
+    }
+
+    @Ignore
+    public Fiera(String nome){
+        this.nome = nome;
+        Calendar cal = Calendar.getInstance();
+        this.created_time = cal.getTime();
     }
 
     @NonNull
@@ -28,7 +35,8 @@ public class Fiera {
         return nome;
     }
 
-    public String getCreated_time() {
+    public Date getCreated_time() {
         return created_time;
     }
+
 }

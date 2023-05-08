@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Gestore Prestiti Fiere</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_1">Prestiti attivi</string>
+    <string name="tab_text_2">Prestiti totali</string>
+    <string name="tab_text_3">Utenti</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="storage_access_required">Richiesto accesso alla memoria</string>
+    <string name="storage_unavailable">Accesso alla memoria non disponibile</string>
 </resources>
